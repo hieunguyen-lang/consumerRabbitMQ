@@ -1,1 +1,11 @@
-service:
+services:
+  consumer:
+    build: .                  # Chỉ định thư mục hiện tại làm context build Docker
+    container_name: consumer  # Đặt tên cho container
+    volumes:
+      - .:/app                 # Mount thư mục hiện tại vào thư mục /app trong container
+    networks:
+      - app-network 
+networks:
+  app-network:
+    external: true
